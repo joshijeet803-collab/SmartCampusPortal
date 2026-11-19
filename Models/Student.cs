@@ -1,0 +1,2 @@
+namespace SmartCampusPortal.Models;
+public class Student { public int Id {get;set;} public string Name {get;set;}=""; public string Email {get;set;}=""; public string Course {get;set;}="Computer Engineering"; public int Semester {get;set;}=5; }

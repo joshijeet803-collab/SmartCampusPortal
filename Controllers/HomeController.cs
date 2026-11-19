@@ -1,0 +1,3 @@
+using Microsoft.AspNetCore.Mvc; using SmartCampusPortal.Data; using SmartCampusPortal.Models;
+namespace SmartCampusPortal.Controllers;
+public class HomeController(CampusDb db):Controller { public IActionResult Index()=>View(db.Requests.OrderByDescending(x=>x.CreatedAt).ToList()); [HttpPost] public IActionResult Create(string title,string category,string details){ if(!string.IsNullOrWhiteSpace(title)){db.Requests.Add(new ServiceRequest{Title=title,Category=category,Details=details});db.SaveChanges();} return RedirectToAction("Index");} }
